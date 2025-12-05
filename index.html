@@ -1,0 +1,279 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="MIDev - Full Stack Development Solutions in Michigan">
+    <title>MIDev | Full Stack Development in Michigan</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="container">
+            <div class="nav-wrapper">
+                <div class="logo-container">
+                    <svg class="logo" width="50" height="50" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
+                        <!-- Michigan shape integrated with code brackets -->
+                        <defs>
+                            <linearGradient id="logoGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+                                <stop offset="0%" style="stop-color:#00d4ff;stop-opacity:1" />
+                                <stop offset="100%" style="stop-color:#0066ff;stop-opacity:1" />
+                            </linearGradient>
+                        </defs>
+                        <!-- Left bracket -->
+                        <path d="M 25 20 L 15 20 L 15 80 L 25 80" stroke="url(#logoGradient)" stroke-width="4" fill="none" stroke-linecap="round"/>
+                        <!-- Right bracket -->
+                        <path d="M 75 20 L 85 20 L 85 80 L 75 80" stroke="url(#logoGradient)" stroke-width="4" fill="none" stroke-linecap="round"/>
+                        <!-- MI letters stylized -->
+                        <text x="50" y="60" font-family="Arial, sans-serif" font-size="32" font-weight="bold" fill="url(#logoGradient)" text-anchor="middle">MI</text>
+                    </svg>
+                    <span class="logo-text">MIDev</span>
+                </div>
+                <ul class="nav-links">
+                    <li><a href="#home">Home</a></li>
+                    <li><a href="#services">Services</a></li>
+                    <li><a href="#about">About</a></li>
+                    <li><a href="#contact" class="btn-contact">Contact Us</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section id="home" class="hero">
+        <div class="container">
+            <div class="hero-content">
+                <div class="hero-logo">
+                    <svg width="200" height="200" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
+                        <defs>
+                            <linearGradient id="heroGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+                                <stop offset="0%" style="stop-color:#00d4ff;stop-opacity:1" />
+                                <stop offset="50%" style="stop-color:#0088ff;stop-opacity:1" />
+                                <stop offset="100%" style="stop-color:#0066ff;stop-opacity:1" />
+                            </linearGradient>
+                            <filter id="glow">
+                                <feGaussianBlur stdDeviation="2" result="coloredBlur"/>
+                                <feMerge>
+                                    <feMergeNode in="coloredBlur"/>
+                                    <feMergeNode in="SourceGraphic"/>
+                                </feMerge>
+                            </filter>
+                        </defs>
+                        <!-- Outer brackets with glow -->
+                        <path d="M 25 15 L 10 15 L 10 85 L 25 85" stroke="url(#heroGradient)" stroke-width="5" fill="none" stroke-linecap="round" filter="url(#glow)"/>
+                        <path d="M 75 15 L 90 15 L 90 85 L 75 85" stroke="url(#heroGradient)" stroke-width="5" fill="none" stroke-linecap="round" filter="url(#glow)"/>
+                        <!-- MI with tech styling -->
+                        <text x="50" y="62" font-family="Arial, sans-serif" font-size="36" font-weight="bold" fill="url(#heroGradient)" text-anchor="middle" filter="url(#glow)">MI</text>
+                        <!-- Small code symbols -->
+                        <circle cx="35" cy="35" r="2" fill="#00d4ff" opacity="0.6"/>
+                        <circle cx="65" cy="35" r="2" fill="#00d4ff" opacity="0.6"/>
+                        <circle cx="50" cy="25" r="2" fill="#0088ff" opacity="0.6"/>
+                    </svg>
+                </div>
+                <h1 class="hero-title">Full Stack Development<br><span class="highlight">Made in Michigan</span></h1>
+                <p class="hero-subtitle">Transforming ideas into powerful digital solutions with cutting-edge technology</p>
+                <div class="hero-buttons">
+                    <a href="#contact" class="btn btn-primary">Get Started</a>
+                    <a href="#services" class="btn btn-secondary">Our Services</a>
+                </div>
+                <div class="tech-badges">
+                    <span class="badge">React</span>
+                    <span class="badge">Node.js</span>
+                    <span class="badge">Python</span>
+                    <span class="badge">AWS</span>
+                    <span class="badge">Docker</span>
+                </div>
+            </div>
+        </div>
+        <!-- Animated background elements -->
+        <div class="bg-animation">
+            <div class="floating-element element-1"></div>
+            <div class="floating-element element-2"></div>
+            <div class="floating-element element-3"></div>
+        </div>
+    </section>
+
+    <!-- Services Section -->
+    <section id="services" class="services">
+        <div class="container">
+            <h2 class="section-title">Our Services</h2>
+            <p class="section-subtitle">Complete technology solutions from concept to deployment</p>
+            <div class="services-grid">
+                <div class="service-card">
+                    <div class="service-icon">
+                        <svg width="60" height="60" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M16 18L22 12L16 6" stroke="#00d4ff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                            <path d="M8 6L2 12L8 18" stroke="#00d4ff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                        </svg>
+                    </div>
+                    <h3>Frontend Development</h3>
+                    <p>Modern, responsive user interfaces built with React, Vue, and Angular for exceptional user experiences.</p>
+                </div>
+                <div class="service-card">
+                    <div class="service-icon">
+                        <svg width="60" height="60" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <rect x="2" y="3" width="20" height="14" rx="2" stroke="#00d4ff" stroke-width="2"/>
+                            <path d="M8 21H16" stroke="#00d4ff" stroke-width="2" stroke-linecap="round"/>
+                            <path d="M12 17V21" stroke="#00d4ff" stroke-width="2" stroke-linecap="round"/>
+                        </svg>
+                    </div>
+                    <h3>Backend Development</h3>
+                    <p>Robust server-side solutions using Node.js, Python, and Java with scalable database architecture.</p>
+                </div>
+                <div class="service-card">
+                    <div class="service-icon">
+                        <svg width="60" height="60" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M3 15C3 15 5.5 20 12 20C18.5 20 21 15 21 15" stroke="#00d4ff" stroke-width="2" stroke-linecap="round"/>
+                            <circle cx="12" cy="8" r="4" stroke="#00d4ff" stroke-width="2"/>
+                        </svg>
+                    </div>
+                    <h3>Cloud Solutions</h3>
+                    <p>Deploy and manage applications on AWS, Azure, and Google Cloud with DevOps best practices.</p>
+                </div>
+                <div class="service-card">
+                    <div class="service-icon">
+                        <svg width="60" height="60" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <rect x="3" y="3" width="7" height="7" stroke="#00d4ff" stroke-width="2"/>
+                            <rect x="14" y="3" width="7" height="7" stroke="#00d4ff" stroke-width="2"/>
+                            <rect x="3" y="14" width="7" height="7" stroke="#00d4ff" stroke-width="2"/>
+                            <rect x="14" y="14" width="7" height="7" stroke="#00d4ff" stroke-width="2"/>
+                        </svg>
+                    </div>
+                    <h3>Full Stack Solutions</h3>
+                    <p>End-to-end development covering frontend, backend, database, and deployment infrastructure.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="about">
+        <div class="container">
+            <div class="about-content">
+                <div class="about-text">
+                    <h2 class="section-title">About MIDev</h2>
+                    <p>Based in the heart of Michigan, MIDev is your trusted partner for full stack development solutions. We combine Midwest values with cutting-edge technology to deliver exceptional digital products.</p>
+                    <p>Our team of experienced developers specializes in creating scalable, maintainable, and high-performance applications that drive business growth and innovation.</p>
+                    <div class="stats">
+                        <div class="stat">
+                            <h3>100+</h3>
+                            <p>Projects Completed</p>
+                        </div>
+                        <div class="stat">
+                            <h3>10+</h3>
+                            <p>Technologies</p>
+                        </div>
+                        <div class="stat">
+                            <h3>24/7</h3>
+                            <p>Support</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="about-image">
+                    <svg width="400" height="400" viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg">
+                        <defs>
+                            <linearGradient id="michiganGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+                                <stop offset="0%" style="stop-color:#00d4ff;stop-opacity:0.8" />
+                                <stop offset="100%" style="stop-color:#0066ff;stop-opacity:0.8" />
+                            </linearGradient>
+                        </defs>
+                        <!-- Stylized Michigan outline with tech elements -->
+                        <ellipse cx="100" cy="80" rx="40" ry="60" fill="none" stroke="url(#michiganGradient)" stroke-width="3"/>
+                        <ellipse cx="100" cy="80" rx="30" ry="50" fill="none" stroke="url(#michiganGradient)" stroke-width="2" opacity="0.5"/>
+                        <!-- Grid pattern overlay -->
+                        <g opacity="0.3">
+                            <line x1="60" y1="40" x2="140" y2="40" stroke="#00d4ff" stroke-width="1"/>
+                            <line x1="60" y1="60" x2="140" y2="60" stroke="#00d4ff" stroke-width="1"/>
+                            <line x1="60" y1="80" x2="140" y2="80" stroke="#00d4ff" stroke-width="1"/>
+                            <line x1="60" y1="100" x2="140" y2="100" stroke="#00d4ff" stroke-width="1"/>
+                            <line x1="60" y1="120" x2="140" y2="120" stroke="#00d4ff" stroke-width="1"/>
+                        </g>
+                        <!-- Tech nodes -->
+                        <circle cx="80" cy="60" r="4" fill="#00d4ff"/>
+                        <circle cx="120" cy="70" r="4" fill="#0088ff"/>
+                        <circle cx="100" cy="90" r="4" fill="#0066ff"/>
+                        <circle cx="90" cy="110" r="4" fill="#00d4ff"/>
+                        <circle cx="110" cy="50" r="4" fill="#0088ff"/>
+                        <!-- Connection lines -->
+                        <line x1="80" y1="60" x2="120" y2="70" stroke="#00d4ff" stroke-width="1" opacity="0.5"/>
+                        <line x1="120" y1="70" x2="100" y2="90" stroke="#0088ff" stroke-width="1" opacity="0.5"/>
+                        <line x1="100" y1="90" x2="90" y2="110" stroke="#0066ff" stroke-width="1" opacity="0.5"/>
+                    </svg>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="contact">
+        <div class="container">
+            <h2 class="section-title">Let's Build Something Amazing</h2>
+            <p class="section-subtitle">Ready to start your next project? Get in touch with us today.</p>
+            <div class="contact-content">
+                <div class="contact-info">
+                    <div class="info-item">
+                        <svg width="30" height="30" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M21 10C21 17 12 23 12 23C12 23 3 17 3 10C3 5.02944 7.02944 1 12 1C16.9706 1 21 5.02944 21 10Z" stroke="#00d4ff" stroke-width="2"/>
+                            <circle cx="12" cy="10" r="3" stroke="#00d4ff" stroke-width="2"/>
+                        </svg>
+                        <div>
+                            <h4>Location</h4>
+                            <p>Michigan, USA</p>
+                        </div>
+                    </div>
+                    <div class="info-item">
+                        <svg width="30" height="30" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <rect x="3" y="5" width="18" height="14" rx="2" stroke="#00d4ff" stroke-width="2"/>
+                            <path d="M3 7L12 13L21 7" stroke="#00d4ff" stroke-width="2"/>
+                        </svg>
+                        <div>
+                            <h4>Email</h4>
+                            <p>contact@midev.tech</p>
+                        </div>
+                    </div>
+                    <div class="info-item">
+                        <svg width="30" height="30" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <circle cx="12" cy="12" r="10" stroke="#00d4ff" stroke-width="2"/>
+                            <path d="M12 6V12L16 14" stroke="#00d4ff" stroke-width="2" stroke-linecap="round"/>
+                        </svg>
+                        <div>
+                            <h4>Business Hours</h4>
+                            <p>Mon - Fri: 9AM - 6PM EST</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="cta-box">
+                    <h3>Ready to Get Started?</h3>
+                    <p>Let's discuss how we can help bring your vision to life.</p>
+                    <a href="mailto:contact@midev.tech" class="btn btn-primary">Contact Us Now</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-logo">
+                    <svg width="40" height="40" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
+                        <defs>
+                            <linearGradient id="footerGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+                                <stop offset="0%" style="stop-color:#00d4ff;stop-opacity:1" />
+                                <stop offset="100%" style="stop-color:#0066ff;stop-opacity:1" />
+                            </linearGradient>
+                        </defs>
+                        <path d="M 25 20 L 15 20 L 15 80 L 25 80" stroke="url(#footerGradient)" stroke-width="4" fill="none" stroke-linecap="round"/>
+                        <path d="M 75 20 L 85 20 L 85 80 L 75 80" stroke="url(#footerGradient)" stroke-width="4" fill="none" stroke-linecap="round"/>
+                        <text x="50" y="60" font-family="Arial, sans-serif" font-size="32" font-weight="bold" fill="url(#footerGradient)" text-anchor="middle">MI</text>
+                    </svg>
+                    <span>MIDev</span>
+                </div>
+                <p>&copy; 2024 MIDev. Full Stack Development Solutions in Michigan.</p>
+                <p class="tagline">Building the future, one line of code at a time.</p>
+            </div>
+        </div>
+    </footer>
+</body>
+</html>
