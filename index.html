@@ -3,65 +3,326 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="MIDev - Full Stack Development Solutions in Michigan">
-    <title>MIDev | Full Stack Development in Michigan</title>
-    <link rel="stylesheet" href="styles.css">
+    <title>MIDev - Michigan Full Stack Development</title>
+    <style>
+        /* Reset and Base Styles */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+            background-color: #050505; /* Deepest black-charcoal */
+            color: #e0e0e0;
+            height: 100vh;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: flex-start; 
+            text-align: center;
+            overflow: hidden;
+            position: relative;
+        }
+
+        /* Main Content Wrapper */
+        .container {
+            position: relative;
+            z-index: 10; 
+            margin-top: 12vh; 
+            width: 100%;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            animation: fadeIn 2.5s ease-out;
+        }
+
+        /* LOGO */
+        .logo-icon {
+            width: 180px;
+            height: 180px;
+            background-color: #39FF14;
+            margin-bottom: 1rem; 
+            
+            /* Icon Mask */
+            mask-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='currentColor' stroke-width='1.5' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5'/%3E%3C/svg%3E");
+            -webkit-mask-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='currentColor' stroke-width='1.5' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5'/%3E%3C/svg%3E");
+            mask-repeat: no-repeat;
+            -webkit-mask-repeat: no-repeat;
+            mask-position: center;
+            -webkit-mask-position: center;
+
+            /* Metallic / Neon Glow */
+            box-shadow: 0 0 30px rgba(57, 255, 20, 0.5); 
+            filter: drop-shadow(0 0 15px rgba(57,255,20,0.4));
+            animation: floatLogo 6s ease-in-out infinite;
+        }
+
+        /* Stylized Title */
+        .brand-title {
+            font-size: 5rem;
+            font-weight: 800;
+            letter-spacing: -2px;
+            line-height: 1;
+            margin-bottom: 1rem;
+            color: #ffffff;
+            text-shadow: 0 0 20px rgba(0,0,0,0.8); 
+            position: relative;
+            z-index: 12;
+        }
+
+        .brand-title span {
+            color: #39FF14;
+            text-shadow: 0 0 25px rgba(57, 255, 20, 0.6);
+        }
+
+        /* Subtitle Line */
+        .tagline {
+            font-size: 1.25rem;
+            font-weight: 300;
+            color: #cccccc;
+            text-transform: uppercase;
+            letter-spacing: 4px;
+            position: relative;
+            z-index: 12;
+            background: rgba(5,5,5,0.4); 
+            padding: 5px 15px;
+            border-radius: 4px;
+            backdrop-filter: blur(2px);
+        }
+
+        .tagline::after {
+            content: '';
+            display: block;
+            width: 60px;
+            height: 2px;
+            background: #39FF14;
+            margin: 1rem auto 0;
+            box-shadow: 0 0 8px rgba(57, 255, 20, 0.8);
+        }
+
+        /* 
+           SOCIAL LINKS CONTAINER
+           Centered at bottom, above waves
+        */
+        .social-links {
+            display: flex;
+            gap: 2rem;
+            margin-top: 3rem;
+            position: relative;
+            z-index: 15; /* High z-index to be clickable */
+        }
+
+        .social-icon {
+            color: #a0a0a0;
+            width: 32px;
+            height: 32px;
+            transition: all 0.3s ease;
+            opacity: 0.8;
+        }
+
+        .social-icon:hover {
+            color: #39FF14; /* Neon Green on Hover */
+            transform: translateY(-5px) scale(1.1);
+            filter: drop-shadow(0 0 8px rgba(57, 255, 20, 0.8));
+            opacity: 1;
+        }
+
+        .social-icon svg {
+            width: 100%;
+            height: 100%;
+            fill: currentColor;
+        }
+
+        /* 
+           SUBTLE SIGNATURE (ZM)
+           Fixed in bottom right
+        */
+        .signature {
+            position: fixed;
+            bottom: 20px;
+            right: 30px;
+            z-index: 15;
+            text-align: right;
+            opacity: 0.4;
+            font-size: 0.8rem;
+            color: #39FF14;
+            letter-spacing: 2px;
+            transition: opacity 0.3s ease;
+            border-right: 1px solid rgba(57, 255, 20, 0.5);
+            padding-right: 10px;
+        }
+
+        .signature:hover {
+            opacity: 1;
+        }
+
+        .signature span {
+            display: block;
+            font-weight: 600;
+            font-size: 1rem;
+            margin-bottom: 2px;
+        }
+
+        /* METALLIC WAVES CONTAINER */
+        .waves-box {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            height: 55vh; 
+            z-index: 1;
+            pointer-events: none;
+        }
+
+        .waves-svg {
+            width: 100%;
+            height: 100%;
+        }
+
+        /* Wave Animations */
+        .parallax > use {
+            animation: move-forever 25s cubic-bezier(.55,.5,.45,.5) infinite;
+        }
+        
+        .parallax > use:nth-child(1) {
+            animation-delay: -2s;
+            animation-duration: 7s;
+            fill: url(#metallic-1); 
+            opacity: 0.7;
+        }
+        .parallax > use:nth-child(2) {
+            animation-delay: -3s;
+            animation-duration: 10s;
+            fill: url(#metallic-2); 
+            opacity: 0.5;
+        }
+        .parallax > use:nth-child(3) {
+            animation-delay: -4s;
+            animation-duration: 13s;
+            fill: url(#metallic-3); 
+            opacity: 0.3;
+        }
+        .parallax > use:nth-child(4) {
+            animation-delay: -5s;
+            animation-duration: 20s;
+            fill: url(#metallic-4); 
+            opacity: 1;
+        }
+
+        @keyframes move-forever {
+            0% { transform: translate3d(-90px, 0, 0); }
+            100% { transform: translate3d(85px, 0, 0); }
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        @keyframes floatLogo {
+            0%, 100% { transform: translateY(0px); }
+            50% { transform: translateY(-10px); }
+        }
+
+        /* Mobile */
+        @media (max-width: 768px) {
+            .brand-title { font-size: 3.5rem; }
+            .tagline { font-size: 0.8rem; letter-spacing: 2px; }
+            .logo-icon { width: 120px; height: 120px; }
+            .waves-box { height: 50vh; }
+            .container { margin-top: 12vh; }
+            .social-links { gap: 1.5rem; margin-top: 2rem; }
+            .signature { bottom: 10px; right: 15px; font-size: 0.7rem; }
+        }
+    </style>
 </head>
 <body>
-    <!-- Navigation -->
-    <nav class="navbar">
-        <div class="container">
-            <div class="nav-wrapper">
-                <div class="logo-container">
-                    <svg class="logo" width="50" height="50" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
-                        <!-- Michigan shape integrated with code brackets -->
-                        <defs>
-                            <linearGradient id="logoGradient" x1="0%" y1="0%" x2="100%" y2="100%">
-                                <stop offset="0%" style="stop-color:#00d4ff;stop-opacity:1" />
-                                <stop offset="100%" style="stop-color:#0066ff;stop-opacity:1" />
-                            </linearGradient>
-                        </defs>
-                        <!-- Left bracket -->
-                        <path d="M 25 20 L 15 20 L 15 80 L 25 80" stroke="url(#logoGradient)" stroke-width="4" fill="none" stroke-linecap="round"/>
-                        <!-- Right bracket -->
-                        <path d="M 75 20 L 85 20 L 85 80 L 75 80" stroke="url(#logoGradient)" stroke-width="4" fill="none" stroke-linecap="round"/>
-                        <!-- MI letters stylized -->
-                        <text x="50" y="60" font-family="Arial, sans-serif" font-size="32" font-weight="bold" fill="url(#logoGradient)" text-anchor="middle">MI</text>
-                    </svg>
-                    <span class="logo-text">MIDev</span>
-                </div>
-                <ul class="nav-links">
-                    <li><a href="#home">Home</a></li>
-                    <li><a href="#services">Services</a></li>
-                    <li><a href="#about">About</a></li>
-                    <li><a href="#contact" class="btn-contact">Contact Us</a></li>
-                </ul>
-            </div>
-        </div>
-    </nav>
 
-    <!-- Hero Section -->
-    <section id="home" class="hero">
-        <div class="container">
-            <div class="hero-content">
-                <div class="hero-logo">
-                    <svg width="200" height="200" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
-                        <defs>
-                            <linearGradient id="heroGradient" x1="0%" y1="0%" x2="100%" y2="100%">
-                                <stop offset="0%" style="stop-color:#00d4ff;stop-opacity:1" />
-                                <stop offset="50%" style="stop-color:#0088ff;stop-opacity:1" />
-                                <stop offset="100%" style="stop-color:#0066ff;stop-opacity:1" />
-                            </linearGradient>
-                            <filter id="glow">
-                                <feGaussianBlur stdDeviation="2" result="coloredBlur"/>
-                                <feMerge>
-                                    <feMergeNode in="coloredBlur"/>
-                                    <feMergeNode in="SourceGraphic"/>
-                                </feMerge>
-                            </filter>
-                        </defs>
-                        <!-- Outer brackets with glow -->
-                        <path d="M 25 15 L 10 15 L 10 85 L 25 85" stroke="url(#heroGradient)" stroke-width="5" fill="none" stroke-linecap="round" filter="url(#glow)"/>
+    <!-- FLUID METALLIC WAVES -->
+    <div class="waves-box">
+        <svg class="waves-svg" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
+        viewBox="0 24 150 28" preserveAspectRatio="none" shape-rendering="auto">
+            <defs>
+                <path id="gentle-wave" d="M-160 44c30 0 58-18 88-18s 58 18 88 18 58-18 88-18 58 18 88 18 v44h-352z" />
+                <!-- Gradients -->
+                <linearGradient id="metallic-1" x1="0%" y1="0%" x2="100%" y2="0%">
+                    <stop offset="0%" style="stop-color:#39FF14; stop-opacity:0.2" />
+                    <stop offset="50%" style="stop-color:#ffffff; stop-opacity:0.4" />
+                    <stop offset="100%" style="stop-color:#39FF14; stop-opacity:0.2" />
+                </linearGradient>
+                <linearGradient id="metallic-2" x1="0%" y1="0%" x2="100%" y2="0%">
+                    <stop offset="0%" style="stop-color:#004d1a; stop-opacity:1" />
+                    <stop offset="50%" style="stop-color:#39FF14; stop-opacity:0.6" />
+                    <stop offset="100%" style="stop-color:#004d1a; stop-opacity:1" />
+                </linearGradient>
+                <linearGradient id="metallic-3" x1="0%" y1="0%" x2="0%" y2="100%">
+                    <stop offset="0%" style="stop-color:#39FF14; stop-opacity:0.3" />
+                    <stop offset="100%" style="stop-color:#002200; stop-opacity:0.8" />
+                </linearGradient>
+                <linearGradient id="metallic-4" x1="0%" y1="0%" x2="100%" y2="0%">
+                    <stop offset="0%" style="stop-color:#001a00" />
+                    <stop offset="50%" style="stop-color:#003300" />
+                    <stop offset="100%" style="stop-color:#001a00" />
+                </linearGradient>
+            </defs>
+            <g class="parallax">
+                <use xlink:href="#gentle-wave" x="48" y="0" />
+                <use xlink:href="#gentle-wave" x="48" y="3" />
+                <use xlink:href="#gentle-wave" x="48" y="5" />
+                <use xlink:href="#gentle-wave" x="48" y="7" />
+            </g>
+        </svg>
+    </div>
+
+    <!-- Main Content -->
+    <div class="container">
+        <div class="logo-icon"></div>
+        <h1 class="brand-title"><span>MI</span>Dev</h1>
+        <p class="tagline">Michigan based full stack development</p>
+
+        <!-- SOCIAL LINKS -->
+        <div class="social-links">
+            <!-- GitHub -->
+            <a href="https://github.com/toxzak-svg" target="_blank" class="social-icon" aria-label="GitHub">
+                <svg viewBox="0 0 16 16" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.012 8.012 0 0 0 16 8c0-4.42-3.58-8-8-8z"/>
+                </svg>
+            </a>
+            
+            <!-- Facebook -->
+            <a href="https://www.facebook.com/share/17rarjHUKE/" target="_blank" class="social-icon" aria-label="Facebook">
+                <svg viewBox="0 0 16 16" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M16 8.049c0-4.446-3.582-8.05-8-8.05C3.58 0-.002 3.603-.002 8.05c0 4.017 2.926 7.347 6.75 7.951v-5.625h-2.03V8.05H6.75V6.275c0-2.017 1.195-3.131 3.022-3.131.876 0 1.791.157 1.791.157v1.98h-1.009c-.993 0-1.303.621-1.303 1.258v1.51h2.218l-.354 2.326H9.25V16c3.824-.604 6.75-3.934 6.75-7.951z"/>
+                </svg>
+            </a>
+
+            <!-- Telegram -->
+            <a href="https://www.t.me/Ton0Fun" target="_blank" class="social-icon" aria-label="Telegram">
+                <svg viewBox="0 0 16 16" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M16 8A8 8 0 1 1 0 8a8 8 0 0 1 16 0zM8.287 5.906c-.778.324-2.334.994-4.666 2.01-.378.15-.577.298-.595.442-.03.243.275.339.69.47l.175.055c.408.133.958.288 1.243.294.26.006.549-.1.868-.32 2.179-1.471 3.304-2.214 3.374-2.23.05-.012.12-.026.166.016.047.041.042.12.037.141-.03.129-1.227 1.241-1.846 1.817-.193.18-.33.307-.358.336a8.154 8.154 0 0 1-.188.186c-.38.366-.664.64.015 1.088.327.216.589.393.85.571.284.194.568.387.936.629.093.06.183.125.27.187.331.236.63.448.997.414.214-.02.435-.22.547-.82.265-1.417.786-4.486.906-5.751a1.426 1.426 0 0 0-.013-.315.337.337 0 0 0-.114-.217.526.526 0 0 0-.31-.093c-.3.005-.763.213-2.936 1.192z"/>
+                </svg>
+            </a>
+
+            <!-- Email -->
+            <a href="mailto:zwmaronek@gmail.com" class="social-icon" aria-label="Email">
+                <svg viewBox="0 0 16 16" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M0 4a2 2 0 0 1 2-2h12a2 2 0 0 1 2 2v8a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2V4zm2-1a1 1 0 0 0-1 1v.217l7 4.2 7-4.2V4a1 1 0 0 0-1-1H2zm13 2.383-4.708 2.825L15 11.105V5.383zm-.034 6.876-5.64-3.471L8 9.583l-1.326-.795-5.64 3.47A1 1 0 0 0 2 13h12a1 1 0 0 0 .966-.741zM1 11.105l4.708-2.897L1 5.383v5.722z"/>
+                </svg>
+            </a>
+        </div>
+
+    </div>
+
+    <!-- Signature -->
+    <div class="signature">
+        <span>ZM</span>
+        Zachary Maronek
+    </div>
+
+</body>
+</html>                        <path d="M 25 15 L 10 15 L 10 85 L 25 85" stroke="url(#heroGradient)" stroke-width="5" fill="none" stroke-linecap="round" filter="url(#glow)"/>
                         <path d="M 75 15 L 90 15 L 90 85 L 75 85" stroke="url(#heroGradient)" stroke-width="5" fill="none" stroke-linecap="round" filter="url(#glow)"/>
                         <!-- MI with tech styling -->
                         <text x="50" y="62" font-family="Arial, sans-serif" font-size="36" font-weight="bold" fill="url(#heroGradient)" text-anchor="middle" filter="url(#glow)">MI</text>
