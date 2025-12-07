@@ -1,0 +1,279 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Portfolio - MIDev Michigan Full Stack Development</title>
+    <style>
+        /* Reset and Base Styles */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+            background-color: #050505;
+            color: #e0e0e0;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: flex-start;
+            text-align: center;
+            overflow-x: hidden;
+            position: relative;
+        }
+
+        /* Main Content Wrapper */
+        .container {
+            position: relative;
+            z-index: 10;
+            width: 100%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 4rem 1rem;
+        }
+
+        /* Navigation */
+        nav {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            background: rgba(5, 5, 5, 0.95);
+            backdrop-filter: blur(10px);
+            z-index: 100;
+            padding: 1.5rem 2rem;
+            border-bottom: 1px solid rgba(57, 255, 20, 0.2);
+        }
+
+        nav a {
+            color: #39FF14;
+            text-decoration: none;
+            margin: 0 1.5rem;
+            font-weight: 500;
+            transition: all 0.3s ease;
+        }
+
+        nav a:hover {
+            text-shadow: 0 0 10px rgba(57, 255, 20, 0.8);
+        }
+
+        nav a.home-link {
+            font-size: 1.5rem;
+            margin-right: 3rem;
+        }
+
+        /* Page Title */
+        .page-title {
+            font-size: 4rem;
+            font-weight: 800;
+            letter-spacing: -2px;
+            margin-bottom: 1rem;
+            color: #ffffff;
+            text-shadow: 0 0 20px rgba(0,0,0,0.8);
+            margin-top: 5rem;
+        }
+
+        .page-title span {
+            color: #39FF14;
+            text-shadow: 0 0 25px rgba(57, 255, 20, 0.6);
+        }
+
+        .subtitle {
+            font-size: 1.2rem;
+            color: #a0a0a0;
+            margin-bottom: 3rem;
+        }
+
+        /* Portfolio Grid */
+        .portfolio-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin: 3rem 0;
+        }
+
+        .portfolio-item {
+            background: linear-gradient(135deg, rgba(57, 255, 20, 0.1) 0%, rgba(57, 255, 20, 0.05) 100%);
+            border: 1px solid rgba(57, 255, 20, 0.3);
+            border-radius: 8px;
+            padding: 2rem;
+            transition: all 0.3s ease;
+            cursor: pointer;
+        }
+
+        .portfolio-item:hover {
+            border-color: #39FF14;
+            transform: translateY(-10px);
+            box-shadow: 0 0 30px rgba(57, 255, 20, 0.3);
+        }
+
+        .portfolio-item h3 {
+            color: #39FF14;
+            margin-bottom: 1rem;
+            font-size: 1.5rem;
+        }
+
+        .portfolio-item p {
+            color: #a0a0a0;
+            line-height: 1.6;
+            margin-bottom: 1rem;
+        }
+
+        .tech-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+            justify-content: center;
+            margin-top: 1rem;
+        }
+
+        .tech-tag {
+            background: rgba(57, 255, 20, 0.15);
+            color: #39FF14;
+            padding: 0.4rem 0.8rem;
+            border-radius: 4px;
+            font-size: 0.85rem;
+            border: 1px solid rgba(57, 255, 20, 0.2);
+        }
+
+        /* Back Button */
+        .back-button {
+            display: inline-block;
+            margin-bottom: 2rem;
+            color: #39FF14;
+            text-decoration: none;
+            font-weight: 500;
+            transition: all 0.3s ease;
+        }
+
+        .back-button:hover {
+            text-shadow: 0 0 10px rgba(57, 255, 20, 0.8);
+        }
+
+        /* Animations */
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .portfolio-item {
+            animation: fadeIn 0.6s ease-out forwards;
+        }
+
+        .portfolio-item:nth-child(1) { animation-delay: 0.1s; }
+        .portfolio-item:nth-child(2) { animation-delay: 0.2s; }
+        .portfolio-item:nth-child(3) { animation-delay: 0.3s; }
+        .portfolio-item:nth-child(4) { animation-delay: 0.4s; }
+        .portfolio-item:nth-child(5) { animation-delay: 0.5s; }
+        .portfolio-item:nth-child(6) { animation-delay: 0.6s; }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .page-title {
+                font-size: 2.5rem;
+            }
+
+            nav {
+                padding: 1rem;
+            }
+
+            nav a {
+                margin: 0 0.5rem;
+                font-size: 0.9rem;
+            }
+
+            .portfolio-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav>
+        <a href="index.html" class="home-link">← MIDev</a>
+        <a href="index.html">Home</a>
+        <a href="portfolio.html">Portfolio</a>
+        <a href="projects.html">Projects</a>
+    </nav>
+
+    <!-- Main Content -->
+    <div class="container">
+        <a href="index.html" class="back-button">← Back to Home</a>
+        
+        <h1 class="page-title">Our <span>Portfolio</span></h1>
+        <p class="subtitle">A showcase of our recent work and success stories</p>
+
+        <div class="portfolio-grid">
+            <div class="portfolio-item">
+                <h3>E-Commerce Platform</h3>
+                <p>Full-featured e-commerce solution with real-time inventory management, payment processing, and customer analytics dashboard.</p>
+                <div class="tech-tags">
+                    <span class="tech-tag">React</span>
+                    <span class="tech-tag">Node.js</span>
+                    <span class="tech-tag">MongoDB</span>
+                </div>
+            </div>
+
+            <div class="portfolio-item">
+                <h3>Real Estate Dashboard</h3>
+                <p>Interactive property management dashboard with map integration, advanced analytics, and automated reporting features.</p>
+                <div class="tech-tags">
+                    <span class="tech-tag">Vue.js</span>
+                    <span class="tech-tag">Python</span>
+                    <span class="tech-tag">PostgreSQL</span>
+                </div>
+            </div>
+
+            <div class="portfolio-item">
+                <h3>Healthcare Management App</h3>
+                <p>Mobile-first healthcare application with patient records, appointment scheduling, and integrated telemedicine features.</p>
+                <div class="tech-tags">
+                    <span class="tech-tag">React Native</span>
+                    <span class="tech-tag">Firebase</span>
+                    <span class="tech-tag">Node.js</span>
+                </div>
+            </div>
+
+            <div class="portfolio-item">
+                <h3>SaaS Analytics Platform</h3>
+                <p>Enterprise SaaS platform with advanced analytics, custom reporting, and multi-tenant architecture for data-driven insights.</p>
+                <div class="tech-tags">
+                    <span class="tech-tag">Angular</span>
+                    <span class="tech-tag">.NET Core</span>
+                    <span class="tech-tag">SQL Server</span>
+                </div>
+            </div>
+
+            <div class="portfolio-item">
+                <h3>Mobile Gaming Platform</h3>
+                <p>Cross-platform mobile gaming solution with multiplayer features, in-app purchases, and social media integration.</p>
+                <div class="tech-tags">
+                    <span class="tech-tag">Unity</span>
+                    <span class="tech-tag">C#</span>
+                    <span class="tech-tag">Firebase</span>
+                </div>
+            </div>
+
+            <div class="portfolio-item">
+                <h3>AI Content Tool</h3>
+                <p>Intelligent content generation tool powered by machine learning with real-time collaboration and version control.</p>
+                <div class="tech-tags">
+                    <span class="tech-tag">React</span>
+                    <span class="tech-tag">Python</span>
+                    <span class="tech-tag">TensorFlow</span>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

@@ -1,0 +1,347 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Active Projects - MIDev Michigan Full Stack Development</title>
+    <style>
+        /* Reset and Base Styles */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+            background-color: #050505;
+            color: #e0e0e0;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: flex-start;
+            text-align: center;
+            overflow-x: hidden;
+            position: relative;
+        }
+
+        /* Main Content Wrapper */
+        .container {
+            position: relative;
+            z-index: 10;
+            width: 100%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 4rem 1rem;
+        }
+
+        /* Navigation */
+        nav {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            background: rgba(5, 5, 5, 0.95);
+            backdrop-filter: blur(10px);
+            z-index: 100;
+            padding: 1.5rem 2rem;
+            border-bottom: 1px solid rgba(57, 255, 20, 0.2);
+        }
+
+        nav a {
+            color: #39FF14;
+            text-decoration: none;
+            margin: 0 1.5rem;
+            font-weight: 500;
+            transition: all 0.3s ease;
+        }
+
+        nav a:hover {
+            text-shadow: 0 0 10px rgba(57, 255, 20, 0.8);
+        }
+
+        nav a.home-link {
+            font-size: 1.5rem;
+            margin-right: 3rem;
+        }
+
+        /* Page Title */
+        .page-title {
+            font-size: 4rem;
+            font-weight: 800;
+            letter-spacing: -2px;
+            margin-bottom: 1rem;
+            color: #ffffff;
+            text-shadow: 0 0 20px rgba(0,0,0,0.8);
+            margin-top: 5rem;
+        }
+
+        .page-title span {
+            color: #39FF14;
+            text-shadow: 0 0 25px rgba(57, 255, 20, 0.6);
+        }
+
+        .subtitle {
+            font-size: 1.2rem;
+            color: #a0a0a0;
+            margin-bottom: 3rem;
+        }
+
+        /* Projects Grid */
+        .projects-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 2rem;
+            margin: 3rem 0;
+        }
+
+        .project-item {
+            background: linear-gradient(135deg, rgba(57, 255, 20, 0.1) 0%, rgba(57, 255, 20, 0.05) 100%);
+            border: 1px solid rgba(57, 255, 20, 0.3);
+            border-radius: 8px;
+            padding: 2rem;
+            transition: all 0.3s ease;
+            position: relative;
+        }
+
+        .project-item:hover {
+            border-color: #39FF14;
+            transform: translateY(-10px);
+            box-shadow: 0 0 30px rgba(57, 255, 20, 0.3);
+        }
+
+        .project-status {
+            display: inline-block;
+            background: rgba(57, 255, 20, 0.2);
+            color: #39FF14;
+            padding: 0.4rem 1rem;
+            border-radius: 4px;
+            font-size: 0.8rem;
+            font-weight: 600;
+            margin-bottom: 1rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .project-status.coming {
+            background: rgba(255, 165, 0, 0.2);
+            color: #FFA500;
+        }
+
+        .project-item h3 {
+            color: #39FF14;
+            margin-bottom: 1rem;
+            font-size: 1.5rem;
+        }
+
+        .project-item p {
+            color: #a0a0a0;
+            line-height: 1.6;
+            margin-bottom: 1rem;
+        }
+
+        .progress-bar {
+            width: 100%;
+            height: 8px;
+            background: rgba(57, 255, 20, 0.1);
+            border-radius: 4px;
+            overflow: hidden;
+            margin: 1rem 0;
+        }
+
+        .progress-fill {
+            height: 100%;
+            background: linear-gradient(90deg, #39FF14 0%, #32CD32 100%);
+            border-radius: 4px;
+            transition: width 0.3s ease;
+        }
+
+        .progress-text {
+            font-size: 0.9rem;
+            color: #39FF14;
+            font-weight: 600;
+            margin-bottom: 1rem;
+        }
+
+        .launch-date {
+            font-size: 0.9rem;
+            color: #FFA500;
+            font-weight: 600;
+        }
+
+        .tech-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+            justify-content: center;
+            margin-top: 1rem;
+        }
+
+        .tech-tag {
+            background: rgba(57, 255, 20, 0.15);
+            color: #39FF14;
+            padding: 0.4rem 0.8rem;
+            border-radius: 4px;
+            font-size: 0.8rem;
+            border: 1px solid rgba(57, 255, 20, 0.2);
+        }
+
+        /* Back Button */
+        .back-button {
+            display: inline-block;
+            margin-bottom: 2rem;
+            color: #39FF14;
+            text-decoration: none;
+            font-weight: 500;
+            transition: all 0.3s ease;
+        }
+
+        .back-button:hover {
+            text-shadow: 0 0 10px rgba(57, 255, 20, 0.8);
+        }
+
+        /* Animations */
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .project-item {
+            animation: fadeIn 0.6s ease-out forwards;
+        }
+
+        .project-item:nth-child(1) { animation-delay: 0.1s; }
+        .project-item:nth-child(2) { animation-delay: 0.2s; }
+        .project-item:nth-child(3) { animation-delay: 0.3s; }
+        .project-item:nth-child(4) { animation-delay: 0.4s; }
+        .project-item:nth-child(5) { animation-delay: 0.5s; }
+        .project-item:nth-child(6) { animation-delay: 0.6s; }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .page-title {
+                font-size: 2.5rem;
+            }
+
+            nav {
+                padding: 1rem;
+            }
+
+            nav a {
+                margin: 0 0.5rem;
+                font-size: 0.9rem;
+            }
+
+            .projects-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav>
+        <a href="index.html" class="home-link">← MIDev</a>
+        <a href="index.html">Home</a>
+        <a href="portfolio.html">Portfolio</a>
+        <a href="projects.html">Projects</a>
+    </nav>
+
+    <!-- Main Content -->
+    <div class="container">
+        <a href="index.html" class="back-button">← Back to Home</a>
+        
+        <h1 class="page-title">Active <span>Projects</span></h1>
+        <p class="subtitle">Currently in development and coming soon</p>
+
+        <div class="projects-grid">
+            <div class="project-item">
+                <span class="project-status">In Development</span>
+                <h3>AI-Powered Analytics Engine</h3>
+                <p>Building an advanced analytics platform with machine learning capabilities for real-time data insights and predictive modeling.</p>
+                <div class="progress-bar">
+                    <div class="progress-fill" style="width: 65%"></div>
+                </div>
+                <p class="progress-text">65% Complete</p>
+                <div class="tech-tags">
+                    <span class="tech-tag">Python</span>
+                    <span class="tech-tag">TensorFlow</span>
+                    <span class="tech-tag">React</span>
+                </div>
+            </div>
+
+            <div class="project-item">
+                <span class="project-status">In Development</span>
+                <h3>Blockchain Integration Suite</h3>
+                <p>Enterprise-grade blockchain solutions for supply chain management, smart contracts, and decentralized applications.</p>
+                <div class="progress-bar">
+                    <div class="progress-fill" style="width: 45%"></div>
+                </div>
+                <p class="progress-text">45% Complete</p>
+                <div class="tech-tags">
+                    <span class="tech-tag">Ethereum</span>
+                    <span class="tech-tag">Solidity</span>
+                    <span class="tech-tag">Web3.js</span>
+                </div>
+            </div>
+
+            <div class="project-item">
+                <span class="project-status">In Development</span>
+                <h3>Low-Code Development Platform</h3>
+                <p>Democratizing application development with an intuitive low-code platform for enterprise solutions.</p>
+                <div class="progress-bar">
+                    <div class="progress-fill" style="width: 80%"></div>
+                </div>
+                <p class="progress-text">80% Complete</p>
+                <div class="tech-tags">
+                    <span class="tech-tag">Vue.js</span>
+                    <span class="tech-tag">Node.js</span>
+                    <span class="tech-tag">Docker</span>
+                </div>
+            </div>
+
+            <div class="project-item">
+                <span class="project-status coming">Coming Soon</span>
+                <h3>Mobile IoT Management</h3>
+                <p>Comprehensive IoT platform for device management, real-time monitoring, and automated workflows.</p>
+                <p class="launch-date">Launching Q1 2025</p>
+                <div class="tech-tags">
+                    <span class="tech-tag">React Native</span>
+                    <span class="tech-tag">MQTT</span>
+                    <span class="tech-tag">Kubernetes</span>
+                </div>
+            </div>
+
+            <div class="project-item">
+                <span class="project-status coming">Coming Soon</span>
+                <h3>GraphQL API Gateway</h3>
+                <p>Advanced API management solution with GraphQL federation for seamless microservices integration.</p>
+                <p class="launch-date">Launching Q2 2025</p>
+                <div class="tech-tags">
+                    <span class="tech-tag">GraphQL</span>
+                    <span class="tech-tag">Apollo</span>
+                    <span class="tech-tag">Go</span>
+                </div>
+            </div>
+
+            <div class="project-item">
+                <span class="project-status coming">Coming Soon</span>
+                <h3>AR/VR Developer Toolkit</h3>
+                <p>Complete toolkit for building immersive augmented and virtual reality experiences with enterprise support.</p>
+                <p class="launch-date">Launching Q2 2025</p>
+                <div class="tech-tags">
+                    <span class="tech-tag">Unity</span>
+                    <span class="tech-tag">C#</span>
+                    <span class="tech-tag">Three.js</span>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
