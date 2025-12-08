@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>MIStack Solutions - Michigan Full Stack Development</title>
+    <title>MIDev - Michigan Full Stack Development</title>
     <style>
         /* Reset and Base Styles */
         * {
@@ -14,9 +14,7 @@
 
         body {
             font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
-            background: linear-gradient(135deg, #0a0a0a, #1a1a2e, #16213e, #0f3460);
-            background-size: 400% 400%;
-            animation: liquidMetalFlow 15s ease infinite;
+            background-color: #050505; /* Deepest black-charcoal */
             color: #e0e0e0;
             height: 100vh;
             display: flex;
@@ -26,31 +24,6 @@
             text-align: center;
             overflow: hidden;
             position: relative;
-        }
-
-        body::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            bottom: 0;
-            background: 
-                radial-gradient(circle at 20% 50%, rgba(0, 212, 255, 0.15) 0%, transparent 50%),
-                radial-gradient(circle at 80% 80%, rgba(0, 100, 150, 0.2) 0%, transparent 50%),
-                radial-gradient(circle at 40% 20%, rgba(0, 150, 200, 0.1) 0%, transparent 50%);
-            background-size: 200% 200%;
-            animation: liquidMetalFlow 20s ease infinite;
-            opacity: 0.8;
-            pointer-events: none;
-        }
-
-        @keyframes liquidMetalFlow {
-            0% { background-position: 0% 50%; }
-            25% { background-position: 100% 50%; }
-            50% { background-position: 100% 100%; }
-            75% { background-position: 0% 100%; }
-            100% { background-position: 0% 50%; }
         }
 
         /* Main Content Wrapper */
@@ -66,46 +39,30 @@
             padding: 0 1rem; /* Ensure text doesn't touch edges on mobile */
         }
 
-        /* LOGO - MIStack Logo */
+        /* LOGO */
         .logo-icon {
-            width: 120px;
-            height: 120px;
-            margin-bottom: 1rem;
-            position: relative;
+            width: 180px;
+            height: 180px;
+            background-color: #39FF14;
+            margin-bottom: 1rem; 
+            
+            /* Icon Mask */
+            mask-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='currentColor' stroke-width='1.5' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5'/%3E%3C/svg%3E");
+            -webkit-mask-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='currentColor' stroke-width='1.5' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5'/%3E%3C/svg%3E");
+            mask-repeat: no-repeat;
+            -webkit-mask-repeat: no-repeat;
+            mask-position: center;
+            -webkit-mask-position: center;
+
+            /* Metallic / Neon Glow */
+            box-shadow: 0 0 30px rgba(57, 255, 20, 0.5); 
+            filter: drop-shadow(0 0 15px rgba(57,255,20,0.4));
             animation: floatLogo 6s ease-in-out infinite;
-            background-size: contain;
-            background-repeat: no-repeat;
-            background-position: center;
-            background-image: url('Logo%20for%20MIStack%20Solutions%20with%20arrow%20pointing%20to%20Kalamazoo');
-            background-color: transparent;
-            mix-blend-mode: screen;
-            filter: contrast(1.2);
-        }
-
-        .logo-icon::after {
-            content: '';
-            position: absolute;
-            inset: -15px;
-            background: radial-gradient(ellipse at center, rgba(0, 212, 255, 0.4) 0%, transparent 70%);
-            filter: blur(15px);
-            z-index: -1;
-            animation: pulseGlow 3s ease-in-out infinite;
-        }
-
-        @keyframes pulseGlow {
-            0%, 100% { 
-                opacity: 0.6;
-                transform: scale(1);
-            }
-            50% { 
-                opacity: 1;
-                transform: scale(1.1);
-            }
         }
 
         /* Stylized Title */
         .brand-title {
-            font-size: 6.25rem;
+            font-size: 5rem;
             font-weight: 800;
             letter-spacing: -2px;
             line-height: 1;
@@ -117,8 +74,8 @@
         }
 
         .brand-title span {
-            color: #00d4ff;
-            text-shadow: 0 0 25px rgba(0, 212, 255, 0.6);
+            color: #39FF14;
+            text-shadow: 0 0 25px rgba(57, 255, 20, 0.6);
         }
 
         /* New Tagline Container */
@@ -138,6 +95,10 @@
             color: #ffffff; /* Bright white for location */
             text-transform: uppercase;
             letter-spacing: 4px;
+            background: rgba(5,5,5,0.4); 
+            padding: 5px 15px;
+            border-radius: 4px;
+            backdrop-filter: blur(2px);
             text-shadow: 0 0 10px rgba(0,0,0,0.5);
         }
 
@@ -148,6 +109,10 @@
             color: #cccccc;
             text-transform: uppercase;
             letter-spacing: 2px;
+            background: rgba(5,5,5,0.4); 
+            padding: 5px 15px;
+            border-radius: 4px;
+            backdrop-filter: blur(2px);
         }
 
         /* Neon underline attached to the description */
@@ -182,9 +147,9 @@
         }
 
         .social-icon:hover {
-            color: #00d4ff; 
+            color: #39FF14; 
             transform: translateY(-5px) scale(1.1);
-            filter: drop-shadow(0 0 8px rgba(0, 212, 255, 0.8));
+            filter: drop-shadow(0 0 8px rgba(57, 255, 20, 0.8));
             opacity: 1;
         }
 
@@ -203,10 +168,10 @@
             text-align: right;
             opacity: 0.4;
             font-size: 0.8rem;
-            color: #00d4ff;
+            color: #39FF14;
             letter-spacing: 2px;
             transition: opacity 0.3s ease;
-            border-right: 1px solid rgba(0, 212, 255, 0.5);
+            border-right: 1px solid rgba(57, 255, 20, 0.5);
             padding-right: 10px;
         }
 
@@ -221,7 +186,56 @@
             margin-bottom: 2px;
         }
 
+        /* METALLIC WAVES */
+        .waves-box {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            height: 55vh; 
+            z-index: 1;
+            pointer-events: none;
+        }
 
+        .waves-svg {
+            width: 100%;
+            height: 100%;
+        }
+
+        /* Wave Animations */
+        .parallax > use {
+            animation: move-forever 25s cubic-bezier(.55,.5,.45,.5) infinite;
+        }
+        
+        .parallax > use:nth-child(1) {
+            animation-delay: -2s;
+            animation-duration: 7s;
+            fill: url(#metallic-1); 
+            opacity: 0.7;
+        }
+        .parallax > use:nth-child(2) {
+            animation-delay: -3s;
+            animation-duration: 10s;
+            fill: url(#metallic-2); 
+            opacity: 0.5;
+        }
+        .parallax > use:nth-child(3) {
+            animation-delay: -4s;
+            animation-duration: 13s;
+            fill: url(#metallic-3); 
+            opacity: 0.3;
+        }
+        .parallax > use:nth-child(4) {
+            animation-delay: -5s;
+            animation-duration: 20s;
+            fill: url(#metallic-4); 
+            opacity: 1;
+        }
+
+        @keyframes move-forever {
+            0% { transform: translate3d(-90px, 0, 0); }
+            100% { transform: translate3d(85px, 0, 0); }
+        }
 
         @keyframes fadeIn {
             from { opacity: 0; transform: translateY(20px); }
@@ -233,55 +247,13 @@
             50% { transform: translateY(-10px); }
         }
 
-        /* Navigation Bar */
-        .navbar {
-            position: fixed;
-            top: 0;
-            width: 100%;
-            background: rgba(5, 5, 5, 0.98);
-            backdrop-filter: blur(10px);
-            z-index: 1000;
-            padding: 1rem 2rem;
-            border-bottom: 1px solid rgba(0, 212, 255, 0.3);
-            display: flex;
-            justify-content: center;
-            gap: 3rem;
-        }
-
-        /* Page Navigation Buttons */
-        .page-nav-buttons {
-            display: flex;
-            gap: 2rem;
-            margin-top: 3rem;
-            justify-content: center;
-            flex-wrap: wrap;
-        }
-
-        .page-nav-buttons a {
-            color: #00d4ff;
-            text-decoration: none;
-            font-weight: 600;
-            font-size: 1.1rem;
-            padding: 0.8rem 2.5rem;
-            border: 2px solid rgba(0, 212, 255, 0.4);
-            border-radius: 6px;
-            transition: all 0.3s ease;
-            background: transparent;
-        }
-
-        .page-nav-buttons a:hover {
-            border-color: #00d4ff;
-            box-shadow: 0 0 20px rgba(0, 212, 255, 0.4);
-            background: transparent;
-            transform: translateY(-2px);
-        }
-
         /* Mobile */
         @media (max-width: 768px) {
             .brand-title { font-size: 3.5rem; }
             .tagline-loc { font-size: 1rem; letter-spacing: 3px; }
             .tagline-desc { font-size: 0.8rem; letter-spacing: 1px; max-width: 90%; margin: 0 auto; line-height: 1.4; }
             .logo-icon { width: 120px; height: 120px; }
+            .waves-box { height: 50vh; }
             .container { margin-top: 10vh; }
             .social-links { gap: 1.5rem; margin-top: 4rem; }
             .signature { bottom: 10px; right: 15px; font-size: 0.7rem; }
@@ -290,17 +262,51 @@
 </head>
 <body>
 
-
+    <!-- FLUID METALLIC WAVES -->
+    <div class="waves-box">
+        <svg class="waves-svg" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
+        viewBox="0 24 150 28" preserveAspectRatio="none" shape-rendering="auto">
+            <defs>
+                <path id="gentle-wave" d="M-160 44c30 0 58-18 88-18s 58 18 88 18 58-18 88-18 58 18 88 18 v44h-352z" />
+                <!-- Gradients -->
+                <linearGradient id="metallic-1" x1="0%" y1="0%" x2="100%" y2="0%">
+                    <stop offset="0%" style="stop-color:#39FF14; stop-opacity:0.2" />
+                    <stop offset="50%" style="stop-color:#ffffff; stop-opacity:0.4" />
+                    <stop offset="100%" style="stop-color:#39FF14; stop-opacity:0.2" />
+                </linearGradient>
+                <linearGradient id="metallic-2" x1="0%" y1="0%" x2="100%" y2="0%">
+                    <stop offset="0%" style="stop-color:#004d1a; stop-opacity:1" />
+                    <stop offset="50%" style="stop-color:#39FF14; stop-opacity:0.6" />
+                    <stop offset="100%" style="stop-color:#004d1a; stop-opacity:1" />
+                </linearGradient>
+                <linearGradient id="metallic-3" x1="0%" y1="0%" x2="0%" y2="100%">
+                    <stop offset="0%" style="stop-color:#39FF14; stop-opacity:0.3" />
+                    <stop offset="100%" style="stop-color:#002200; stop-opacity:0.8" />
+                </linearGradient>
+                <linearGradient id="metallic-4" x1="0%" y1="0%" x2="100%" y2="0%">
+                    <stop offset="0%" style="stop-color:#001a00" />
+                    <stop offset="50%" style="stop-color:#003300" />
+                    <stop offset="100%" style="stop-color:#001a00" />
+                </linearGradient>
+            </defs>
+            <g class="parallax">
+                <use xlink:href="#gentle-wave" x="48" y="0" />
+                <use xlink:href="#gentle-wave" x="48" y="3" />
+                <use xlink:href="#gentle-wave" x="48" y="5" />
+                <use xlink:href="#gentle-wave" x="48" y="7" />
+            </g>
+        </svg>
+    </div>
 
     <!-- Main Content -->
     <div class="container">
         <div class="logo-icon"></div>
-        <h1 class="brand-title"><span>MI</span>Stack Solutions</h1>
+        <h1 class="brand-title"><span>MI</span>Dev</h1>
         
         <!-- Two-Line Tagline -->
         <div class="tagline-wrapper">
             <p class="tagline-loc">Michigan, USA</p>
-            <p class="tagline-desc">Full Stack Web Development and Software Solutions</p>
+            <p class="tagline-desc">Freelance Full Stack Web Development and Software Design</p>
         </div>
 
         <!-- SOCIAL LINKS (Lowered) -->
@@ -332,11 +338,6 @@
                     <path d="M0 4a2 2 0 0 1 2-2h12a2 2 0 0 1 2 2v8a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2V4zm2-1a1 1 0 0 0-1 1v.217l7 4.2 7-4.2V4a1 1 0 0 0-1-1H2zm13 2.383-4.708 2.825L15 11.105V5.383zm-.034 6.876-5.64-3.471L8 9.583l-1.326-.795-5.64 3.47A1 1 0 0 0 2 13h12a1 1 0 0 0 .966-.741zM1 11.105l4.708-2.897L1 5.383v5.722z"/>
                 </svg>
             </a>
-        </div>
-
-        <!-- Page Navigation Buttons -->
-        <div class="page-nav-buttons">
-            <a href="portfolio.html">Portfolio</a>
         </div>
 
     </div>
