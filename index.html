@@ -14,7 +14,9 @@
 
         body {
             font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
-            background-color: #050505; /* Deepest black-charcoal */
+            background: linear-gradient(135deg, #0a0a0a, #1a1a2e, #16213e, #0f3460);
+            background-size: 400% 400%;
+            animation: liquidMetalFlow 15s ease infinite;
             color: #e0e0e0;
             height: 100vh;
             display: flex;
@@ -24,6 +26,31 @@
             text-align: center;
             overflow: hidden;
             position: relative;
+        }
+
+        body::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: 
+                radial-gradient(circle at 20% 50%, rgba(0, 212, 255, 0.15) 0%, transparent 50%),
+                radial-gradient(circle at 80% 80%, rgba(0, 100, 150, 0.2) 0%, transparent 50%),
+                radial-gradient(circle at 40% 20%, rgba(0, 150, 200, 0.1) 0%, transparent 50%);
+            background-size: 200% 200%;
+            animation: liquidMetalFlow 20s ease infinite;
+            opacity: 0.8;
+            pointer-events: none;
+        }
+
+        @keyframes liquidMetalFlow {
+            0% { background-position: 0% 50%; }
+            25% { background-position: 100% 50%; }
+            50% { background-position: 100% 100%; }
+            75% { background-position: 0% 100%; }
+            100% { background-position: 0% 50%; }
         }
 
         /* Main Content Wrapper */
@@ -198,12 +225,68 @@
             overflow: hidden;
         }
 
+        /* Metallic liquid wave overlay */
+        .racing-lines::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: 
+                linear-gradient(45deg, 
+                    transparent 30%, 
+                    rgba(0, 212, 255, 0.05) 40%, 
+                    rgba(100, 200, 255, 0.08) 50%, 
+                    rgba(0, 212, 255, 0.05) 60%, 
+                    transparent 70%);
+            animation: liquidWave 12s ease-in-out infinite;
+            opacity: 0.7;
+        }
+
+        .racing-lines::after {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: 
+                radial-gradient(ellipse at center, 
+                    transparent 20%, 
+                    rgba(0, 150, 200, 0.04) 40%, 
+                    rgba(0, 212, 255, 0.06) 50%, 
+                    transparent 80%);
+            animation: liquidWave 18s ease-in-out infinite reverse;
+            opacity: 0.5;
+        }
+
+        @keyframes liquidWave {
+            0%, 100% { 
+                transform: translate(0, 0) rotate(0deg);
+                opacity: 0.7;
+            }
+            25% { 
+                transform: translate(10%, 10%) rotate(90deg);
+                opacity: 0.5;
+            }
+            50% { 
+                transform: translate(0, 20%) rotate(180deg);
+                opacity: 0.8;
+            }
+            75% { 
+                transform: translate(-10%, 10%) rotate(270deg);
+                opacity: 0.6;
+            }
+        }
+
         .racing-line {
             position: absolute;
             height: 2px;
             background: linear-gradient(90deg, transparent, rgba(0, 212, 255, 0.8), transparent);
             animation: raceLine 3s linear infinite;
             box-shadow: 0 0 10px rgba(0, 212, 255, 0.5);
+            z-index: 2;
         }
 
         .racing-line:nth-child(1) {
