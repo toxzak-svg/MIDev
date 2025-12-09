@@ -43,19 +43,10 @@
         .logo-icon {
             width: 180px;
             height: 180px;
-            background-color: #39FF14;
-            margin-bottom: 1rem; 
-            
-            /* Icon Mask */
-            mask-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='currentColor' stroke-width='1.5' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5'/%3E%3C/svg%3E");
-            -webkit-mask-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='currentColor' stroke-width='1.5' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5'/%3E%3C/svg%3E");
-            mask-repeat: no-repeat;
-            -webkit-mask-repeat: no-repeat;
-            mask-position: center;
-            -webkit-mask-position: center;
-
-            /* Metallic / Neon Glow removed behind icon */
-            /* Glow removed: no box-shadow or drop-shadow */
+            display: block;
+            margin-bottom: 1rem;
+            object-fit: contain;
+            /* Using a raster logo image instead of CSS mask */
             animation: floatLogo 6s ease-in-out infinite;
         }
 
@@ -299,7 +290,7 @@
 
     <!-- Main Content -->
     <div class="container">
-        <div class="logo-icon"></div>
+        <img class="logo-icon" src="logo.png" alt="MIStack logo">
         <h1 class="brand-title"><span>MI</span>Dev</h1>
         
         <!-- Two-Line Tagline -->
