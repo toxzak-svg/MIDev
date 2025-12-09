@@ -6,10 +6,11 @@
     <title>MIDev - Michigan Full Stack Development</title>
     <style>
         :root{
-            --accent: #39FF14;
+            --accent: #585f53; /* sampled from logo */
+            --accent-rgb: 88,95,83;
             --page-bg: #050505;
-            --text-main: #e6e6e6;
-            --muted-text: #bfcfc0;
+            --text-main: #e6e6e0;
+            --muted-text: #6c6f6a; /* desaturated variant */
         }
         /* Reset and Base Styles */
         * {
@@ -71,8 +72,8 @@
         }
 
         .brand-title span {
-            color: #39FF14;
-            text-shadow: 0 0 25px rgba(57, 255, 20, 0.6);
+            color: var(--accent);
+            text-shadow: 0 0 25px rgba(var(--accent-rgb), 0.6);
         }
 
         /* New Tagline Container */
@@ -89,7 +90,7 @@
         .tagline-loc {
             font-size: 1.2rem;
             font-weight: 600;
-            color: var(--accent);
+                color: var(--accent);
             text-transform: uppercase;
             letter-spacing: 4px;
             background: none; /* removed translucent rectangle */
@@ -103,7 +104,7 @@
         .tagline-desc {
             font-size: 1rem;
             font-weight: 300;
-            color: var(--muted-text);
+                color: var(--muted-text);
             text-transform: uppercase;
             letter-spacing: 2px;
             background: none; /* removed translucent rectangle */
@@ -120,7 +121,7 @@
             height: 2px;
             background: var(--accent);
             margin: 1rem auto 0;
-            box-shadow: 0 0 6px rgba(57, 255, 20, 0.6);
+            box-shadow: 0 0 6px rgba(var(--accent-rgb), 0.6);
         }
 
         /* 
@@ -144,9 +145,9 @@
         }
 
         .social-icon:hover {
-            color: #39FF14; 
+            color: var(--accent);
             transform: translateY(-5px) scale(1.1);
-            filter: drop-shadow(0 0 8px rgba(57, 255, 20, 0.8));
+            filter: drop-shadow(0 0 8px rgba(var(--accent-rgb), 0.8));
             opacity: 1;
         }
 
@@ -165,10 +166,10 @@
             text-align: right;
             opacity: 0.4;
             font-size: 0.8rem;
-            color: #39FF14;
+            color: var(--accent);
             letter-spacing: 2px;
             transition: opacity 0.3s ease;
-            border-right: 1px solid rgba(57, 255, 20, 0.5);
+            border-right: 1px solid rgba(var(--accent-rgb), 0.5);
             padding-right: 10px;
         }
 
@@ -266,18 +267,18 @@
             <defs>
                 <path id="gentle-wave" d="M-160 44c30 0 58-18 88-18s 58 18 88 18 58-18 88-18 58 18 88 18 v44h-352z" />
                 <!-- Gradients -->
-                <linearGradient id="metallic-1" x1="0%" y1="0%" x2="100%" y2="0%">
-                    <stop offset="0%" style="stop-color:#39FF14; stop-opacity:0.2" />
+                    <linearGradient id="metallic-1" x1="0%" y1="0%" x2="100%" y2="0%">
+                    <stop offset="0%" style="stop-color:#585f53; stop-opacity:0.2" />
                     <stop offset="50%" style="stop-color:#ffffff; stop-opacity:0.4" />
-                    <stop offset="100%" style="stop-color:#39FF14; stop-opacity:0.2" />
+                    <stop offset="100%" style="stop-color:#585f53; stop-opacity:0.2" />
                 </linearGradient>
                 <linearGradient id="metallic-2" x1="0%" y1="0%" x2="100%" y2="0%">
                     <stop offset="0%" style="stop-color:#004d1a; stop-opacity:1" />
-                    <stop offset="50%" style="stop-color:#39FF14; stop-opacity:0.6" />
+                    <stop offset="50%" style="stop-color:#585f53; stop-opacity:0.6" />
                     <stop offset="100%" style="stop-color:#004d1a; stop-opacity:1" />
                 </linearGradient>
                 <linearGradient id="metallic-3" x1="0%" y1="0%" x2="0%" y2="100%">
-                    <stop offset="0%" style="stop-color:#39FF14; stop-opacity:0.3" />
+                    <stop offset="0%" style="stop-color:#585f53; stop-opacity:0.3" />
                     <stop offset="100%" style="stop-color:#002200; stop-opacity:0.8" />
                 </linearGradient>
                 <linearGradient id="metallic-4" x1="0%" y1="0%" x2="100%" y2="0%">
