@@ -203,7 +203,7 @@
         /* Waves container (positioned behind main content) */
         .waves-box {
             position: absolute;
-            bottom: 6vh; /* raised more so waves sit higher on screen */
+            bottom: 10vh; /* moved up 4vh as requested */
             left: 0;
             width: 100%;
             height: 68vh; /* more vertical room */
@@ -300,16 +300,16 @@
         viewBox="0 0 150 44" preserveAspectRatio="none" shape-rendering="auto">
             <defs>
                 <path id="gentle-wave" d="M-160 44c30 0 58-18 88-18s 58 18 88 18 58-18 88-18 58 18 88 18 v44h-352z" />
-                <!-- Blue-Green Gradients (brighter, blue-green tones) -->
+                <!-- Blue-Green Gradients (match the lighter aqua from the logo, no black) -->
                 <linearGradient id="bg-wave-1" x1="0%" y1="0%" x2="100%" y2="0%">
-                    <stop offset="0%" style="stop-color:var(--accent2); stop-opacity:0.28" />
-                    <stop offset="50%" style="stop-color:#e6ffff; stop-opacity:0.12" />
-                    <stop offset="100%" style="stop-color:var(--accent2); stop-opacity:0.28" />
+                    <stop offset="0%" style="stop-color:var(--accent2); stop-opacity:0.36" />
+                    <stop offset="50%" style="stop-color:#e6ffff; stop-opacity:0.18" />
+                    <stop offset="100%" style="stop-color:var(--accent2); stop-opacity:0.36" />
                 </linearGradient>
                 <linearGradient id="bg-wave-2" x1="0%" y1="0%" x2="100%" y2="0%">
-                    <stop offset="0%" style="stop-color:#064f50; stop-opacity:0.9" />
-                    <stop offset="50%" style="stop-color:var(--accent2); stop-opacity:0.4" />
-                    <stop offset="100%" style="stop-color:#064f50; stop-opacity:0.9" />
+                    <stop offset="0%" style="stop-color:#0aaeb2; stop-opacity:0.9" />
+                    <stop offset="50%" style="stop-color:var(--accent2); stop-opacity:0.48" />
+                    <stop offset="100%" style="stop-color:#0aaeb2; stop-opacity:0.9" />
                 </linearGradient>
             </defs>
             <g class="parallax-scroll">
