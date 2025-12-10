@@ -203,7 +203,7 @@
         /* Waves container (positioned behind main content) */
         .waves-box {
             position: absolute;
-            bottom: -1vh; /* raised ~2vh from previous position */
+            bottom: 2vh; /* raised so waves sit higher on screen */
             left: 0;
             width: 100%;
             height: 68vh; /* more vertical room */
@@ -238,6 +238,8 @@
             .parallax-scroll {
                 animation: scroll-left 28s linear infinite;
                 will-change: transform;
+                transform-box: fill-box; /* ensure transforms apply as expected on SVG */
+                transform-origin: 0 0;
             }
 
             .parallax > use:nth-child(1) {
@@ -274,7 +276,7 @@
 
             @keyframes scroll-left {
                 0% { transform: translateX(0); }
-                100% { transform: translateX(-28%); }
+                100% { transform: translateX(-50%); }
             }
 
         /* Mobile */
@@ -316,6 +318,11 @@
                     <use xlink:href="#gentle-wave" x="48" y="3" />
                     <use xlink:href="#gentle-wave" x="48" y="5" />
                     <use xlink:href="#gentle-wave" x="48" y="7" />
+                    <!-- duplicate waves to provide continuous-looking horizontal scroll -->
+                    <use xlink:href="#gentle-wave" x="198" y="0" />
+                    <use xlink:href="#gentle-wave" x="198" y="3" />
+                    <use xlink:href="#gentle-wave" x="198" y="5" />
+                    <use xlink:href="#gentle-wave" x="198" y="7" />
                 </g>
             </g>
         </svg>
