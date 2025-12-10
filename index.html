@@ -197,7 +197,23 @@
             margin-bottom: 2px;
         }
 
-        /* Waves removed (static layout) */
+        /* Waves container (positioned behind main content) */
+        .waves-box {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            height: 55vh;
+            z-index: 1;
+            pointer-events: none;
+            overflow: hidden;
+        }
+
+        .waves-svg {
+            width: 100%;
+            height: 100%;
+            display: block;
+        }
 
         @keyframes fadeIn {
             from { opacity: 0; transform: translateY(20px); }
@@ -291,7 +307,7 @@
 
     <!-- Main Content -->
     <div class="container">
-        <img class="logo-icon" src="1000033913.png" alt="MIStack logo">
+        <img class="logo-icon" src="logo_trans.png" alt="MIStack logo">
         
         <!-- Two-Line Tagline -->
         <div class="tagline-wrapper">
