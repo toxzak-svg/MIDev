@@ -4,134 +4,108 @@
 <head>
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<title>MIStack Solutions | Portfolio</title>
+	<title>MIStack Solutions</title>
 	<link href="https://fonts.googleapis.com/css?family=Montserrat:700,400&display=swap" rel="stylesheet">
 	<style>
 		body {
 			margin: 0;
+			min-height: 100vh;
 			font-family: 'Montserrat', Arial, sans-serif;
 			background: #181c20;
 			color: #f4f4f4;
+			display: flex;
+			align-items: center;
+			justify-content: center;
 		}
-		.container {
-			max-width: 900px;
-			margin: 0 auto;
-			padding: 32px 16px 64px 16px;
+		.center-box {
+			display: flex;
+			flex-direction: column;
+			align-items: center;
+			justify-content: center;
+			gap: 32px;
+			background: rgba(30, 34, 40, 0.98);
+			border-radius: 18px;
+			padding: 48px 32px 40px 32px;
+			box-shadow: 0 4px 32px rgba(0,0,0,0.18);
 		}
 		.logo {
-			display: block;
-			margin: 40px auto 16px auto;
-			width: 180px;
+			width: 200px;
 			max-width: 80vw;
+			margin-bottom: 12px;
 		}
-		h1 {
-			text-align: center;
-			font-size: 2.5rem;
-			margin-bottom: 0.2em;
-			font-weight: 700;
-			letter-spacing: 1px;
+		.button-row {
+			display: flex;
+			gap: 18px;
+			flex-wrap: wrap;
+			justify-content: center;
 		}
-		h2 {
-			color: #00e6ff;
-			margin-top: 2em;
-			font-size: 1.5rem;
-		}
-		.subtitle {
-			text-align: center;
-			color: #b0eaff;
-			font-size: 1.2rem;
-			margin-bottom: 2em;
-		}
-		.section {
-			margin-bottom: 2.5em;
-		}
-		.projects {
-			display: grid;
-			grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
-			gap: 24px;
-		}
-		.project-card {
-			background: #23272b;
-			border-radius: 12px;
-			padding: 20px;
-			box-shadow: 0 2px 12px rgba(0,0,0,0.12);
-			transition: transform 0.2s, box-shadow 0.2s;
-		}
-		.project-card:hover {
-			transform: translateY(-4px) scale(1.03);
-			box-shadow: 0 6px 24px rgba(0,255,255,0.10);
-		}
-		.project-title {
-			color: #00e6ff;
+		.main-btn, .social-btn {
+			display: flex;
+			align-items: center;
+			gap: 8px;
+			padding: 12px 22px;
+			border: none;
+			border-radius: 8px;
 			font-size: 1.1rem;
-			margin-bottom: 0.5em;
 			font-weight: 600;
-		}
-		.contact {
-			text-align: center;
-			margin-top: 3em;
-		}
-		.contact a {
-			color: #00e6ff;
+			cursor: pointer;
+			background: #00e6ff;
+			color: #181c20;
 			text-decoration: none;
-			font-weight: 600;
+			transition: background 0.18s, color 0.18s, box-shadow 0.18s;
+			box-shadow: 0 2px 8px rgba(0,230,255,0.08);
 		}
-		.contact a:hover {
-			text-decoration: underline;
+		.main-btn:hover, .social-btn:hover {
+			background: #00b3c6;
+			color: #fff;
+		}
+		.social-btn {
+			background: #23272b;
+			color: #00e6ff;
+			font-size: 1.2rem;
+			padding: 10px 18px;
+		}
+		.social-btn.github:hover { background: #24292e; color: #fff; }
+		.social-btn.facebook:hover { background: #1877f3; color: #fff; }
+		.social-btn.telegram:hover { background: #229ed9; color: #fff; }
+		.social-btn.discord:hover { background: #5865f2; color: #fff; }
+		.portfolio-btn {
+			margin-top: 18px;
+			background: #fff;
+			color: #181c20;
+			border: 2px solid #00e6ff;
+			font-size: 1.1rem;
+			font-weight: 700;
+			padding: 12px 32px;
+			border-radius: 8px;
+			text-decoration: none;
+			transition: background 0.18s, color 0.18s, border 0.18s;
+		}
+		.portfolio-btn:hover {
+			background: #00e6ff;
+			color: #181c20;
+			border: 2px solid #fff;
 		}
 		@media (max-width: 600px) {
-			h1 { font-size: 1.6rem; }
-			.container { padding: 16px 4px 32px 4px; }
+			.center-box { padding: 24px 6vw 24px 6vw; }
+			.logo { width: 120px; }
+			.main-btn, .social-btn, .portfolio-btn { font-size: 1rem; padding: 10px 12px; }
 		}
 	</style>
+	<!-- Font Awesome for icons -->
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
 </head>
 <body>
-	<div class="container">
+	<div class="center-box">
 		<img src="logo.png" alt="MIStack Solutions Logo" class="logo">
-		<h1>MIStack Solutions</h1>
-		<div class="subtitle">Michigan-based Cloud & IT Solutions | Portfolio of <strong>Your Name</strong></div>
-
-		<div class="section">
-			<h2>About Me</h2>
-			<p>
-				Welcome! I'm <strong>Your Name</strong>, founder of MIStack Solutions. I specialize in cloud infrastructure, automation, and IT consulting for businesses of all sizes. My mission is to deliver reliable, scalable, and secure technology solutions tailored to Michigan's unique business landscape.
-			</p>
+		<div class="button-row">
+			<a href="mailto:your.email@example.com" class="main-btn"><i class="fa-solid fa-envelope"></i> Contact</a>
+			<a href="https://github.com/yourgithub" class="social-btn github" target="_blank" title="GitHub"><i class="fab fa-github"></i></a>
+			<a href="https://facebook.com/yourfacebook" class="social-btn facebook" target="_blank" title="Facebook"><i class="fab fa-facebook-f"></i></a>
+			<a href="https://t.me/yourtelegram" class="social-btn telegram" target="_blank" title="Telegram"><i class="fab fa-telegram-plane"></i></a>
+			<a href="https://discord.com/users/yourdiscordid" class="social-btn discord" target="_blank" title="Discord"><i class="fab fa-discord"></i></a>
 		</div>
-
-		<div class="section">
-			<h2>Services</h2>
-			<ul>
-				<li>Cloud Architecture & Migration (AWS, Azure, GCP)</li>
-				<li>DevOps & Automation (CI/CD, Infrastructure as Code)</li>
-				<li>Managed IT Services & Support</li>
-				<li>Custom Web & App Development</li>
-				<li>Security & Compliance Consulting</li>
-			</ul>
-		</div>
-
-		<div class="section">
-			<h2>Featured Projects</h2>
-			<div class="projects">
-				<div class="project-card">
-					<div class="project-title">Cloud Migration for Local Manufacturer</div>
-					<div>Migrated legacy systems to AWS, reducing costs by 30% and improving uptime.</div>
-				</div>
-				<div class="project-card">
-					<div class="project-title">Automated CI/CD Pipeline</div>
-					<div>Implemented GitHub Actions and Terraform for a fintech startup, enabling rapid, reliable deployments.</div>
-				</div>
-				<div class="project-card">
-					<div class="project-title">Custom CRM Web App</div>
-					<div>Developed a secure, scalable CRM for a Michigan-based nonprofit, streamlining donor management.</div>
-				</div>
-			</div>
-		</div>
-
-		<div class="section contact">
-			<h2>Contact</h2>
-			<p>Email: <a href="mailto:your.email@example.com">your.email@example.com</a></p>
-			<p>LinkedIn: <a href="https://www.linkedin.com/in/yourprofile" target="_blank">linkedin.com/in/yourprofile</a></p>
-		</div>
+		<a href="portfolio.html" class="portfolio-btn">Portfolio</a>
 	</div>
 </body>
 </html>
