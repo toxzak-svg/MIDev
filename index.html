@@ -1,0 +1,137 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>MIStack Solutions | Portfolio</title>
+	<link href="https://fonts.googleapis.com/css?family=Montserrat:700,400&display=swap" rel="stylesheet">
+	<style>
+		body {
+			margin: 0;
+			font-family: 'Montserrat', Arial, sans-serif;
+			background: #181c20;
+			color: #f4f4f4;
+		}
+		.container {
+			max-width: 900px;
+			margin: 0 auto;
+			padding: 32px 16px 64px 16px;
+		}
+		.logo {
+			display: block;
+			margin: 40px auto 16px auto;
+			width: 180px;
+			max-width: 80vw;
+		}
+		h1 {
+			text-align: center;
+			font-size: 2.5rem;
+			margin-bottom: 0.2em;
+			font-weight: 700;
+			letter-spacing: 1px;
+		}
+		h2 {
+			color: #00e6ff;
+			margin-top: 2em;
+			font-size: 1.5rem;
+		}
+		.subtitle {
+			text-align: center;
+			color: #b0eaff;
+			font-size: 1.2rem;
+			margin-bottom: 2em;
+		}
+		.section {
+			margin-bottom: 2.5em;
+		}
+		.projects {
+			display: grid;
+			grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+			gap: 24px;
+		}
+		.project-card {
+			background: #23272b;
+			border-radius: 12px;
+			padding: 20px;
+			box-shadow: 0 2px 12px rgba(0,0,0,0.12);
+			transition: transform 0.2s, box-shadow 0.2s;
+		}
+		.project-card:hover {
+			transform: translateY(-4px) scale(1.03);
+			box-shadow: 0 6px 24px rgba(0,255,255,0.10);
+		}
+		.project-title {
+			color: #00e6ff;
+			font-size: 1.1rem;
+			margin-bottom: 0.5em;
+			font-weight: 600;
+		}
+		.contact {
+			text-align: center;
+			margin-top: 3em;
+		}
+		.contact a {
+			color: #00e6ff;
+			text-decoration: none;
+			font-weight: 600;
+		}
+		.contact a:hover {
+			text-decoration: underline;
+		}
+		@media (max-width: 600px) {
+			h1 { font-size: 1.6rem; }
+			.container { padding: 16px 4px 32px 4px; }
+		}
+	</style>
+</head>
+<body>
+	<div class="container">
+		<img src="mistack-logo.png" alt="MIStack Solutions Logo" class="logo">
+		<h1>MIStack Solutions</h1>
+		<div class="subtitle">Michigan-based Cloud & IT Solutions | Portfolio of <strong>Your Name</strong></div>
+
+		<div class="section">
+			<h2>About Me</h2>
+			<p>
+				Welcome! I'm <strong>Your Name</strong>, founder of MIStack Solutions. I specialize in cloud infrastructure, automation, and IT consulting for businesses of all sizes. My mission is to deliver reliable, scalable, and secure technology solutions tailored to Michigan's unique business landscape.
+			</p>
+		</div>
+
+		<div class="section">
+			<h2>Services</h2>
+			<ul>
+				<li>Cloud Architecture & Migration (AWS, Azure, GCP)</li>
+				<li>DevOps & Automation (CI/CD, Infrastructure as Code)</li>
+				<li>Managed IT Services & Support</li>
+				<li>Custom Web & App Development</li>
+				<li>Security & Compliance Consulting</li>
+			</ul>
+		</div>
+
+		<div class="section">
+			<h2>Featured Projects</h2>
+			<div class="projects">
+				<div class="project-card">
+					<div class="project-title">Cloud Migration for Local Manufacturer</div>
+					<div>Migrated legacy systems to AWS, reducing costs by 30% and improving uptime.</div>
+				</div>
+				<div class="project-card">
+					<div class="project-title">Automated CI/CD Pipeline</div>
+					<div>Implemented GitHub Actions and Terraform for a fintech startup, enabling rapid, reliable deployments.</div>
+				</div>
+				<div class="project-card">
+					<div class="project-title">Custom CRM Web App</div>
+					<div>Developed a secure, scalable CRM for a Michigan-based nonprofit, streamlining donor management.</div>
+				</div>
+			</div>
+		</div>
+
+		<div class="section contact">
+			<h2>Contact</h2>
+			<p>Email: <a href="mailto:your.email@example.com">your.email@example.com</a></p>
+			<p>LinkedIn: <a href="https://www.linkedin.com/in/yourprofile" target="_blank">linkedin.com/in/yourprofile</a></p>
+		</div>
+	</div>
+</body>
+</html>
